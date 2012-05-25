@@ -1,0 +1,15 @@
+body { font-family: "Lucida Sans", Arial; font-size: 12px; margin: 0px; padding: 5px; color: #2f3d4a; }
+
+#Popup { margin-top: -15px; padding: 0px;   }
+
+h2 { background: #2f3d4a; color: #fff; padding: 5px; }
+
+tr, th, td { font-size: 12px; }
+
+td.mini { font-size: 10px; }
+
+/* CSS pour les liens hypertext */
+a, a:visited, a:link { color: #11438c; text-decoration: none; }
+a:hover { color: #404651; }
+
+

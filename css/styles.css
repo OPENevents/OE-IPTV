@@ -1,0 +1,53 @@
+body { font-family: "Lucida Sans", Arial; font-size: 12px; margin: 0px; padding: 0px; background: url('img/bg.png') repeat-x; color: #2f3d4a; }
+
+/* CSS pour les liens hypertext */
+a, a:visited, a:link { color: #11438c; text-decoration: none; }
+a:hover { color: #404651; }
+
+/* CSS pour les tableaux */
+table.table { border: solid 1px #abb2b5; border-radius: 5px; width: 100%; }
+table.table tr th, table.table tr td { border-bottom: solid 1px #abb2b5; height: 30px; text-align: left; min-width: 15px; }
+table.table tr td { color: #555555; }
+table.table tr td.title, table.table tr td.title a { background-color: #7987a2; color: white; font-weight: bold; }
+table.table tr td.light { color: #999999; }
+table.table tr td.heavy { color: #2f3d4a; }
+table.table tr th { background: #404651; color: #d5e0e9; }
+
+table.table-h { border: solid 1px #abb2b5; border-radius: 5px; width: 100%; }
+table.table-h tr th, table.table-h tr td { height: 30px; text-align: left; min-width: 15px; }
+table.table-h tr td { color: #444444; }
+table.table-h tr th { background: #404651; color: #d5e0e9; }
+
+table.form { width: 70%; }
+table.form tr { height: 30px; }
+table.form tr th, table.table-h tr td { height: 30px; text-align: left; min-width: 15px; }
+table.form tr td { color: #444444; }
+table.form tr th { color: #555555; }
+
+table.icon { width: 100%; }
+table.icon tr td { text-align: center; width: 80px; }
+tr, th, td { font-size: 12px; }
+
+fieldset { margin-top: 20px; border-radius: 5px; border: solid 1px #abb2b5; }
+fieldset legend { font-weight: bold; }
+
+/* CSS pour la structure de la page */
+#Page { width: 800px; margin: auto auto; }
+#header { width: 100%; height: 68px; color: #ddd; }
+#navigation { width: 100%; height: 39px; font-size: 14px; font-weight: bold; }
+#navigation ul { padding: 0; margin: 0; list-style-type: none; }
+#navigation li { margin-left: 2px; float: left; }
+#navigation ul li a { display: block; float: left; width: 100px; color: #ccc; text-decoration: none; text-align: center; padding: 10px; }
+#navigation ul li a:hover { color: #d5e0e9; background: url('img/bg-navigation-hover.png') repeat-x; }
+#content { background-color: #f6f7fa; border: solid 1px #c5c9cc; border-radius: 5px; padding: 20px; padding-top: 0px; margin-top: 20px; min-height: 300px; }
+#footer { margin-top: 20px; text-align: center; }
+
+/* CSS pour les messages flash */
+.flashbox { border: solid 2px black; padding: 10px; margin-bottom: 20px; }
+.success { border-color: #6cba5a; background-color: #eef8ed; color: #428537; }
+.info { border-color: #4a79b2; background-color: #e0ebf2; color: #2c436b; }
+.warning { border-color: #b5a84d; background-color: #f1f4e4; color: #6f6d2e; }
+.error { border-color: #b24a4a; background-color: #f2e3e0; color: #6b2e2c; }
+
+.options { display: none; }
+.inactive { background: #c6c9d3; color: #bbb; }

@@ -1,0 +1,31 @@
+body { font-family: "Lucida Sans", Arial; font-size: 11px; margin: 0px; padding: 0px; color: #000000; }
+
+/* CSS pour les liens hypertext */
+a, a:visited, a:link { color: #000000; text-decoration: none; }
+a:hover { color: #000000; }
+
+/* CSS pour les tableaux */
+table, table tr th, table tr td { font-size: 12px; }
+
+table.table { border: solid 1px #bbbbbb; border-radius: 5px; width: 100%; }
+table.table tr th, table.table tr td { border-bottom: solid 1px #bbbbbb; height: 30px; text-align: left; min-width: 15px; }
+table.table tr td { color: #000000; }
+table.table tr td.title, table.table tr td.title a { background-color: #999999; color: #ffffff; font-weight: bold; }
+table.table tr td.light { color: #999999; }
+table.table tr td.heavy { color: #000000; }
+table.table tr th { background: #000000; color: #ffffff; }
+
+table.table-h { border: solid 1px #bbbbbb; border-radius: 5px; width: 100%; }
+table.table-h tr th, table.table-h tr td { height: 30px; text-align: left; min-width: 15px; }
+table.table-h tr td { color: #000000; }
+table.table-h tr th { background: #ffffff; color: #000000; }
+
+/* CSS pour la structure de la page */
+#header { display: none; }
+#navigation { display: none; }
+#content { background-color: #ffffff; }
+#footer { display: none; }
+
+.options { display: none; }
+.inactive { background: #dddddd; color: #aaaaaa; }
+.no-print { display: none; }
