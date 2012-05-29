@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="OE-IPTV : Web interface for MuMuDVB " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>OE-IPTV</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/OPENevents/OE-IPTV">View on GitHub</a>
+
+          <h1 id="project_title">OE-IPTV</h1>
+          <h2 id="project_tagline">Web interface for MuMuDVB </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/OPENevents/OE-IPTV/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/OPENevents/OE-IPTV/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>OE-IPTV</h1>
+
+<p>Web interface for MuMuDVB </p>
+
+<h2>Installation</h2>
+
+<h3>Récupérer les sources du projet</h3>
+
+<blockquote>
+<p>cd /var/www</p>
+
+<p>git clone <a href="https://github.com/OPENevents/OE-IPTV.git">https://github.com/OPENevents/OE-IPTV.git</a></p>
+
+<p>cd OE-IPTV</p>
+</blockquote>
+
+<h3>Configuration</h3>
+
+<h4>Configuration de l'application</h4>
+
+<blockquote>
+<p>vi system/application/config/config.php</p>
+</blockquote>
+
+<ul>
+<li>Editer la valeur de $config['base_url'] avec l'url de votre serveur</li>
+</ul><blockquote>
+<p>vi system/application/config/database.php</p>
+</blockquote>
+
+<ul>
+<li>Configurer les paramètres d'accès à votre base de données MySQL</li>
+</ul><h4>Création de la base de données MySQL</h4>
+
+<h5>Structure</h5>
+
+<blockquote>
+<p>CREATE TABLE <code>chaine</code> (
+<code>id</code> int(11) NOT NULL auto_increment,
+<code>name</code> varchar(50) NOT NULL,
+<code>ip_multicast</code> varchar(15) NOT NULL,
+<code>num_service</code> int(11) NOT NULL,
+<code>pid</code> varchar(50) NOT NULL,
+<code>tuner_id</code> int(11) NOT NULL,
+<code>is_active</code> tinyint(4) NOT NULL default '1',
+PRIMARY KEY  (<code>id</code>)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;</p>
+
+<p>CREATE TABLE <code>config</code> (
+<code>id</code> int(11) NOT NULL auto_increment,
+<code>name</code> varchar(100) NOT NULL,
+<code>value</code> text,
+PRIMARY KEY  (<code>id</code>)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;</p>
+
+<p>CREATE TABLE <code>tuner</code> (
+<code>id</code> int(11) NOT NULL auto_increment,
+<code>name</code> varchar(50) NOT NULL,
+<code>num_card</code> tinyint(4) NOT NULL,
+<code>frequence_transponder</code> varchar(10) NOT NULL,
+<code>polarite</code> varchar(50) default NULL,
+<code>srate</code> int(11) default NULL,
+<code>modulation</code> varchar(20) default NULL,
+<code>coderate</code> varchar(10) NOT NULL default 'auto',
+<code>dvb_s2</code> tinyint(1) default NULL,
+<code>dvr</code> tinyint(1) default NULL,
+<code>is_active</code> tinyint(4) NOT NULL default '0',
+PRIMARY KEY  (<code>id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;</p>
+</blockquote>
+
+<h5>Données</h5>
+
+<blockquote>
+<p>INSERT INTO <code>config</code> (<code>id</code>, <code>name</code>, <code>value</code>) VALUES
+(1, 'common_port', '1234'),
+(2, 'sap', '1'),
+(3, 'sap_default_group', 'MYGROUP'),
+(4, 'rewrite_pat', '1'),
+(5, 'ip_http', '127.0.0.1'),
+(6, 'port_http', '4200');</p>
+</blockquote>
+
+<h4>Script de lancement : mumudvb</h4>
+
+<p>Déplacer le script permettant de contrôler les instances MumuDVB</p>
+
+<blockquote>
+<p>mv mumudvb.sh /etc/init.d/mumudvb</p>
+
+<p>chmod +x /etc/init.d/mumudvb</p>
+</blockquote>
+
+<p>Modifier le fichier /etc/sudoers pour donner les permissions à www-data</p>
+
+<blockquote>
+<p>visudo</p>
+</blockquote>
+
+<p>Ajouter la ligne :</p>
+
+<blockquote>
+<p>www-data   ALL=NOPASSWD: /etc/init.d/mumudvb</p>
+</blockquote>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">OE-IPTV maintained by <a href="https://github.com/OPENevents">OPENevents</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-7594737-8");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
