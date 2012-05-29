@@ -1,4 +1,16 @@
 <?php
+/**
+ * OE IPTV
+ *
+ * Webinterface for MuMuDVB
+ *
+ * @package          OE-IPTV
+ * @author           OPENevents
+ * @license          http://www.gnu.org/licenses/gpl-2.0.txt
+ * @link             http://www.openevents.fr
+ * @version          1.0
+ */
+
 function slug($string) {
 	$return = strtolower($string);
 	$return = str_replace('Ž', 'e', $return);
