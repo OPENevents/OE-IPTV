@@ -1,12 +1,12 @@
 <h2>Modifier un transpondeur</h2>
 
 
-<? if (isset($user_msg['status'])): ?>
+<?php if (isset($user_msg['status'])): ?>
 	<div class="flashbox <?=$user_msg['status']?>">
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
 	</div>
-<? endif; ?>
+<?php endif; ?>
 
 
 
@@ -29,7 +29,7 @@
     		<th>Actif</th>
     		<td>
     			<select name="is_active">
-    				<option value="<?=$tuner->is_active?>"><? if ($tuner->is_active == "0") { echo "Non"; } else { echo "Oui"; }?></option>
+    				<option value="<?=$tuner->is_active?>"><?php if ($tuner->is_active == "0") { echo "Non"; } else { echo "Oui"; }?></option>
     				<option disabled="disabled">---</option>
     				<option value="0">Non</option>
     				<option value="1">Oui</option>
@@ -38,7 +38,7 @@
     	</tr>
     	<tr>
     		<th>Tuner Satellite</th>
-    		<td><input type="checkbox" id="DVBS" name="DVBS" <? if ($tuner->polarite != null) echo 'checked="checked"';?> onclick="javascript:$('.options').toggle();"/></td>
+    		<td><input type="checkbox" id="DVBS" name="DVBS" <?php if ($tuner->polarite != null) echo 'checked="checked"';?> onclick="javascript:$('.options').toggle();"/></td>
     	</tr>
 
     	<tr class="options">
@@ -95,8 +95,8 @@
     		</td>
     	</tr>
     	<tr class="options">
-    		<th>DVB-S2 <input type="checkbox" name="dvb_s2"  <? if ($tuner->dvb_s2 == 1) echo 'checked="checked"';?>/></th>
-    		<th>DVR <input type="checkbox" name="dvr"  <? if ($tuner->dvr == 1) echo 'checked="checked"';?>/></th>
+    		<th>DVB-S2 <input type="checkbox" name="dvb_s2"  <?php if ($tuner->dvb_s2 == 1) echo 'checked="checked"';?>/></th>
+    		<th>DVR <input type="checkbox" name="dvr"  <?php if ($tuner->dvr == 1) echo 'checked="checked"';?>/></th>
     	</tr>
     	<tr>
     		<td colspan="2"><input type="submit" value="Valider"/></td>

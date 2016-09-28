@@ -1,13 +1,12 @@
 <h2>Transpondeurs</h2>
-
-<? if (isset($user_msg['status'])): ?>
+<?php if (isset($user_msg['status'])): ?>
 	<div class="flashbox <?=$user_msg['status']?>">
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'delete') echo "Le transpondeur a bien &eacute;t&eacute; supprim&eacute;.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'delete') echo "Erreur lors de la suppression du tuner.";?>
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'delete') echo "Le transpondeur a bien &eacute;t&eacute; supprim&eacute;.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'delete') echo "Erreur lors de la suppression du tuner.";?>
 	</div>
-<? endif; ?>
+<?php endif; ?>
 
 
 <fieldset>
@@ -46,9 +45,9 @@
 			<th>Coderate</th>
 			<th>Actions</th>
 		</tr>
-		<? foreach($all as $item): ?>
+		<?php foreach($all as $item): ?>
 		<tr>
-			<td><? if($item->is_active != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?></td>
+			<td><?php if($item->is_active != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?></td>
 			<td class="heavy"><?=$item->name?></td>
 			<td><?=$item->num_card?></td>
 			<td><?=$item->frequence_transponder?></td>
@@ -85,5 +84,5 @@
 				<a href="<?=site_url('tuner/delete/'.$item->id)?>" onclick="return(confirm('Etes-vous sur de vouloir supprimer le transpondeur et toutes les chaines attach&eacute; ?'));"><img src="<?=base_url()?>/css/icon/cross.png" title="Supprimer"/></a>
 			</td>
 		</tr>	
-		<? endforeach; ?>
+		<?php endforeach; ?>
 	</table>

@@ -1,11 +1,11 @@
 <h2>Modifier un param&egrave;tre</h2>
 
-<? if (isset($user_msg['status'])): ?>
+<?php if (isset($user_msg['status'])): ?>
 	<div class="flashbox <?=$user_msg['status']?>">
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
 	</div>
-<? endif; ?>
+<?php endif; ?>
 
 
 

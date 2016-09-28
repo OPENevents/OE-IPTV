@@ -1,11 +1,11 @@
 <h2>Modifier un tuner</h2>
 
-<? if (isset($user_msg['status'])): ?>
+<?php if (isset($user_msg['status'])): ?>
 	<div class="flashbox <?=$user_msg['status']?>">
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec succ&egrave;s.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas &eacute;t&eacute; remplis correctement.";?>
 	</div>
-<? endif; ?>
+<?php endif; ?>
 
 
 
@@ -32,12 +32,11 @@
     		<th>Transpondeur</th>
     		<td>
     			<select name="tuner_id">
-    				<option 
-value="<?=$chaine->tuner_id?>"><?=$tuners2[$chaine->tuner_id]?></option>
+    				<option value="<?=$chaine->tuner_id?>"><?=$tuners2[$chaine->tuner_id]?></option>
     				<option disabled="disabled">---</option>
-					<? foreach ($tuners as $tuner): ?>
+					<?php foreach ($tuners as $tuner): ?>
 					<option value="<?=$tuner->id?>">(#<?=$tuner->id?>) <?=$tuner->name?></option>
-					<? endforeach; ?>
+					<?php endforeach; ?>
 				</select>
     		</td>
     	</tr>
@@ -45,7 +44,7 @@ value="<?=$chaine->tuner_id?>"><?=$tuners2[$chaine->tuner_id]?></option>
     		<th>Active</th>
     		<td>
     			<select name="is_active">
-    				<option value="<?=$chaine->is_active?>"><? if ($chaine->is_active == "0") { echo "Non"; } else { echo "Oui"; }?></option>
+    				<option value="<?=$chaine->is_active?>"><?php if ($chaine->is_active == "0") { echo "Non"; } else { echo "Oui"; }?></option>
     				<option disabled="disabled">---</option>
     				<option value="0">Non</option>
     				<option value="1">Oui</option>

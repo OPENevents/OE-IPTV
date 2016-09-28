@@ -5,17 +5,17 @@
 </div>
 <br />
 <!--
-<? if (isset($user_msg['status'])): ?>
+<?php if (isset($user_msg['status'])): ?>
 	<div class="flashbox <?=$user_msg['status']?>">
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec 
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'form') echo "Le formulaire a &eacute;t&eacute; valid&eacute; avec 
 succ&egrave;s.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas 
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'form') echo "Tous les champs du formulaire n'ont pas 
 &eacute;t&eacute; remplis correctement.";?>
-		<? if ($user_msg['status'] == 'success' && $user_msg['type'] == 'delete') echo "La chaine a bien &eacute;t&eacute; 
+		<?php if ($user_msg['status'] == 'success' && $user_msg['type'] == 'delete') echo "La chaine a bien &eacute;t&eacute; 
 supprim&eacute;.";?>
-		<? if ($user_msg['status'] == 'error' && $user_msg['type'] == 'delete') echo "Erreur lors de la suppression de la chaine.";?>
+		<?php if ($user_msg['status'] == 'error' && $user_msg['type'] == 'delete') echo "Erreur lors de la suppression de la chaine.";?>
 	</div>
-<? endif; ?>
+<?php endif; ?>
 
 <fieldset>
     <legend>Ajouter une chaine</legend>
@@ -28,9 +28,9 @@ supprim&eacute;.";?>
     PIDs <input type="text" name="pid" size="30" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     Transpondeur 
 	<select name="tuner_id">
-		<? foreach ($tuners as $tuner): ?>
+		<?php foreach ($tuners as $tuner): ?>
 		<option value="<?=$tuner->id?>">(#<?=$tuner->id?>) <?=$tuner->name?></option>
-		<? endforeach; ?>
+		<?php endforeach; ?>
 	</select>
     <br/><br/>
     <input type="submit" value="Valider"/>
@@ -47,12 +47,12 @@ supprim&eacute;.";?>
 			<th>PIDs</th>
 			<th class="no-print">Actions</th>
 		</tr>
-		<? $tuner = 0; ?>
-		<? foreach($all as $item): ?>
-		<? if ($tuner != $item->tuner_id): ?>
+		<?php $tuner = 0; ?>
+		<?php foreach($all as $item): ?>
+		<?php if ($tuner != $item->tuner_id): ?>
 			<tr>
 				<td class="title">
-					<? if($tuners2[$item->tuner_id]['is_active'] != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } 
+					<?php if($tuners2[$item->tuner_id]['is_active'] != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } 
 else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?>
 				</td>
 				<td class="title" colspan="5">
@@ -62,17 +62,17 @@ else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?>
 <?=$tuners2[$item->tuner_id]['frequence_transponder']?>
 				</td>
 			</tr>
-		<? endif; ?>
+		<?php endif; ?>
 		
 		<tr>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><img 
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><img 
 src="<?=base_url()?>css/img/chaines/<?=slug($item->name)?>.gif" width="30" /></td>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) { echo 'class=" heavy inactive"'; } else { echo 'class="heavy"'; 
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) { echo 'class=" heavy inactive"'; } else { echo 'class="heavy"'; 
 }?>><?=$item->name?></td>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->ip_multicast?></td>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->num_service?></td>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->pid?></td>
-			<td <? if($tuners2[$item->tuner_id]['is_active'] != 1) { echo 'class="inactive no-print"'; } else { echo 
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->ip_multicast?></td>
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->num_service?></td>
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) echo 'class="inactive"';?>><?=$item->pid?></td>
+			<td <?php if($tuners2[$item->tuner_id]['is_active'] != 1) { echo 'class="inactive no-print"'; } else { echo 
 'class="no-print"'; }?>>
 				<a href="<?=site_url('chaine/edit/'.$item->id)?>"><img src="<?=base_url()?>/css/icon/pencil.png" 
 title="Modifier"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -80,6 +80,6 @@ title="Modifier"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
 title="Supprimer"/></a>
 			</td>
 		</tr>
-		<? $tuner = $item->tuner_id; ?>
-		<? endforeach; ?>
+		<?php $tuner = $item->tuner_id; ?>
+		<?php endforeach; ?>
 	</table>

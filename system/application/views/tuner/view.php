@@ -19,11 +19,11 @@
 	</tr>
 	<tr>
 		<th>DVB-S2</th>
-		<td><? if ($tuner->dvb_s2 == 1) { echo "oui"; } else { echo "non"; }?></td>
+		<td><?php if ($tuner->dvb_s2 == 1) { echo "oui"; } else { echo "non"; }?></td>
 		<th>DVR</th>
-		<td><? if ($tuner->dvr == 1) { echo "oui"; } else { echo "non"; }?></td>
+		<td><?php if ($tuner->dvr == 1) { echo "oui"; } else { echo "non"; }?></td>
 		<th>Coderate</th>
-		<td><? if ($tuner->polarite != null && $tuner->srate != null && $tuner->modulation != null) { echo $tuner->coderate; } ?></td>
+		<td><?php if ($tuner->polarite != null && $tuner->srate != null && $tuner->modulation != null) { echo $tuner->coderate; } ?></td>
 	</tr>
 </table>
 <div style="text-align: right">
@@ -51,8 +51,8 @@
 			<td><input type="submit" value="Ajouter la chaine"/></td>
 		</tr>
 		<?=form_close()?>
-		<? foreach($chaine as $item): ?>
-		<tr <? if($item->is_active != 1) echo 'class="inactive"';?>>
+		<?php foreach($chaine as $item): ?>
+		<tr <?php if($item->is_active != 1) echo 'class="inactive"';?>>
 			<td><img src="<?=base_url()?>css/img/chaines/<?=slug($item->name)?>.gif" width="30" /></td>
 			<td class="heavy"><?=$item->name?></td>
 			<td><?=$item->ip_multicast?></td>
@@ -63,5 +63,5 @@
 			<a href="<?=site_url('chaine/delete/'.$item->id)?>"><img src="<?=base_url()?>/css/icon/cross.png" title="Supprimer"/> Supprimer</a>
 			</td>
 		</tr>	
-		<? endforeach; ?>
+		<?php endforeach; ?>
 	</table>

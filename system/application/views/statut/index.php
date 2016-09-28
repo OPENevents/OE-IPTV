@@ -17,13 +17,13 @@
 		<th>Statut</th>
 		<th>Actions</th>
 	</tr>
-<? foreach ($tuners as $tuner): ?>
+<?php foreach ($tuners as $tuner): ?>
 	<tr>
-		<td><? if($tuner->is_active != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?></td>
+		<td><?php if($tuner->is_active != 1) { echo "<img src='".base_url()."/css/icon/off.png'/>"; } else { echo "<img src='".base_url()."/css/icon/on.png'/>"; } ?></td>
 		<td><?=$tuner->name?></td>
-		<td><? if (check_status(strtolower($tuner->name))) { echo '<span style="color: green;">En service</span>'; } else { echo '<span style="color: red;">Hors service</span>'; }?></td>
+		<td><?php if (check_status(strtolower($tuner->name))) { echo '<span style="color: green;">En service</span>'; } else { echo '<span style="color: red;">Hors service</span>'; }?></td>
 		<td>
-			<? if ($tuner->is_active == 1) {
+			<?php if ($tuner->is_active == 1) {
 				if (check_status(strtolower($tuner->name).'.conf')) {
 					echo "<img src='".base_url()."/css/icon/start_.png'/>&nbsp;&nbsp;&nbsp;";
 					echo "<a href='".site_url('statut/stop/'.$tuner->id)."'><img src='".base_url()."/css/icon/stop.png'/></a>&nbsp;&nbsp;&nbsp;";
@@ -43,5 +43,5 @@
 			}?>
 		</td>
 	</tr>
-<? endforeach; ?>
+<?php endforeach; ?>
 </table>
