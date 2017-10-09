@@ -1,10 +1,12 @@
-# OE-IPTV #
+# Not maintained, this project has reached its end of life. #
+
+## OE-IPTV ##
 
 Web interface for MuMuDVB 
 
-## Installation  ##
+### Installation  ###
 
-### Récupérer les sources du projet ###
+#### Récupérer les sources du projet ####
 
 > cd /var/www
 
@@ -12,9 +14,9 @@ Web interface for MuMuDVB
 
 > cd OE-IPTV
 
-### Configuration ###
+#### Configuration ####
 
-#### Configuration de l'application ####
+##### Configuration de l'application #####
 
 > vi system/application/config/config.php
 
@@ -24,9 +26,9 @@ Web interface for MuMuDVB
 
 - Configurer les paramètres d'accès à votre base de données MySQL
 
-#### Création de la base de données MySQL ####
+##### Création de la base de données MySQL #####
 
-##### Structure #####
+###### Structure ######
 
     CREATE TABLE `chaine` (
       `id` int(11) NOT NULL auto_increment,
@@ -61,7 +63,7 @@ Web interface for MuMuDVB
       PRIMARY KEY  (`id`)
     ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
-##### Données #####
+###### Données ######
 
     INSERT INTO `config` (`id`, `name`, `value`) VALUES
     (1, 'common_port', '1234'),
@@ -71,7 +73,7 @@ Web interface for MuMuDVB
     (5, 'ip_http', '127.0.0.1'),
     (6, 'port_http', '4200');
 
-#### Script de lancement : mumudvb ####
+##### Script de lancement : mumudvb #####
 
 Déplacer le script permettant de contrôler les instances MumuDVB
 
